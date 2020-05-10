@@ -1,0 +1,43 @@
+
+DESCRIPTION = machine that matches strings with pattern x^n y^n 
+where n is a positive integer and x and y are characters representing alphabet tokens
+
+STATES = [ q0, q1, q2, q3]
+
+
+ALPHABET_TOKENS = [a,b]
+
+TAPE_TOKENS = [ _ , # ]
+
+END_OF_TAPE_TOKEN = #
+
+START_STATE = q0
+
+ACCEPT_STATES = [q2]
+
+// write transitions in the format: from --> to
+// use and asterik (*) to separate values like this:
+// currentState * currentToken --> nextState * newToken * shiftDirection
+// if transition not reachable, write NA after -->
+
+TRANSITION = 
+  
+q0 * a --> q0 * a * R
+q0 * b --> q1 * _ * L
+q0 * _ --> q0 * _ * R
+q0 * # --> q2 * # * L
+
+q1 * a --> q0 * _ * R
+q1 * b --> NA
+q1 * _ --> q1 * _ * L
+q1 * # --> q3 * # * S
+
+q2 * a --> q3 * a * S
+q2 * b --> q3 * b * S
+q2 * _ --> q2 * _ * L
+q2 * # --> q2 * # * S
+
+q3 * a --> NA
+q3 * b --> NA
+q3 * _ --> NA
+q3 * # --> NA
