@@ -27,7 +27,7 @@ START_STATE = q0
 ACCEPT_STATES = [q2]                                                            
                                                                                 
 // write transitions in the format: from --> to                                 
-// use an asterik (*) to separate values like this:                             
+// use an asterisk (*) to separate values like this:                             
 // currentState * currentToken --> nextState * newToken * shiftDirection        
 // if transition not reachable, write NA after -->                              
                                                                                 
